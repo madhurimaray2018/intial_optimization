@@ -812,7 +812,7 @@ def merge():
 		 B.nodes[u]['exio']+=wt  #outgoing  for app
 
         chunk_copy_number=chunk_count+1
-	for (v,wt) in B.nodes(data='weight'):
+	for (v,wt) in B.nodes(data='io'):
 		if B.nodes[v]['io']> node_io_limit:
 			srcList=[]   
 			copy_cnt=int(math.ceil(B.nodes[v]['io']/node_io_limit))
