@@ -37,12 +37,12 @@ total_ssd_in_rack=9 # this is number of ssd inside a rack
 chunk_count=1500 #10 #Parameter
 loop_count=3 # Parameter  loopcount must be less than total number of app then we will go to infinite loop
 node_limit = 30*1000*1000 # approx 35% per node utilized  #Parameter (same here this could be bandwidth or io as above, not sure, assuming io for now)
-large_node_limit=total_ssd_in_rack*node_limit # this is the rack level limit
+large_node_limit=(total_ssd_in_rack-1)*node_limit # this is the rack level limit
 pod_limit =((k*k*large_node_limit)/4)  #Parameter  (this could be io or bandwidth, not sure about the limit)
 #node_cpu_limit = 99999999999 #Parameter
 node_io_limit=node_limit #Parameter (Not Sure about definition)
-baseAppRate=1280*1000*1000#Parameter (definition, this is the total io utilization of the network in terms of KBPS)
-alpha=1 #alpha for zipf
+baseAppRate=2560*1000*1000#Parameter (definition, this is the total io utilization of the network in terms of KBPS)
+alpha=0.8 #alpha for zipf
 seed=3 #Parameter  this is the seed for random number generation , incase you donot want to specify anything set it 0 then it will take timestamp
 #---------------------------------------------------------------------------------------------------------------------------------------
 pod_number=0
